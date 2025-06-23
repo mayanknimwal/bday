@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tanvi's Mood Lobby 💖</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Choose Your Mood 💖</h1>
+        <div class="mood-buttons">
+            <a href="sad.html" class="mood-btn sad">Sad 😢</a>
+            <a href="happy.html" class="mood-btn happy">Happiee 😊</a>
+            <a href="low.html" class="mood-btn low">Low 😔</a>
+            <a href="angry.html" class="mood-btn angry">guccha 😡</a>
+            <a href="more.html" class="mood-btn more">More 💖</a>
+        </div>
+        
+        <a href="index.html" class="back-btn">⬅ Go Back</a>
+
+    </div>
+
+</body>
+</html>
+<body>
+    <script>
+        // Generate floating particles
+        for (let i = 0; i < 20; i++) {
+            let particle = document.createElement("div");
+            particle.className = "particle";
+            particle.style.left = Math.random() * 100 + "vw";
+            particle.style.top = Math.random() * 100 + "vh";
+            particle.style.animationDuration = (2 + Math.random() * 3) + "s";
+            document.body.appendChild(particle);
+        }
+    </script>
+    <a href="memories.html" class="memories-button">
+        <img src="camera-icon.png" alt="Camera Icon">
+        <style>
+            .floating-letters-btn {
+              bottom: 75px;
+              right: 700px;
+              width: 60px;
+              height: 60px;
+              background-image: url('love-letter.png'); /* Replace with your icon */
+              background-size: cover;
+              background-position: center;
+              border-radius: 0%;
+              box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+              transition: transform 0.3s ease-in-out;
+              z-index: 1000;
+            }
+          
+            .floating-letters-btn:hover {
+              transform: scale(1.1);
+            }
+          </style>
+          
+          <a href="letter.html" class="floating-letters-btn"></a>
+          
+      
+</body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Magical Entry Page</title>
+
+  <style>
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .page-content {
+      animation: fadeInUp 1s ease-out;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-content">
+    <h1>Welcome to Our Magical World ✨</h1>
+    <p>Every page has a little magic hidden inside 💖</p>
+  </div>
+</body>
+</html>

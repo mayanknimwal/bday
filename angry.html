@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>When You're Sad 💙</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="sad-bg">
+    <div class="container">
+        <h1>mera babu gussa hai mersee ? 😡</h1>
+        <p>💖 [bachaaa gussa haii kash me vhaa hotaa ikkk appp bhot cutuuuu lgrii hogiii betuuuuu bachaa apne pyari pati se ese guchaaaa hotee hai btana soryyyy bachaaaaaaa] 💖</p>
+        <a href="lobby.html" class="back-btn">⬅ Back to Lobby</a>
+    </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Mood</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
+
+        body {
+            background: url('https://i.imgur.com/0FZ3rYh.jpg') no-repeat center center/cover;
+            font-family: 'Dancing Script', cursive;
+            margin: 0;
+            padding: 50px 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .content {
+            flex: 1;
+            text-align: center;
+            margin-top: 50px;
+            color: #240800;
+            font-size: 10px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .player-container {
+            width: 50%;
+            position: fixed;
+            bottom: 10px;
+            background: rgba(255, 245, 230, 0);
+            padding: 1px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0);
+            backdrop-filter: transparent(10px);
+        }
+
+        .player h2 {
+            font-size: 22px;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background: #d99a9a;
+            color: #fff;
+            border: none;
+            padding: 20px 10px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 20px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            background: #ff758f;
+            transform: scale(1.1);
+        }
+
+        audio {
+            width: 100%;
+            margin-top: 10px;
+            border-radius: 10px;
+            
+        }
+    </style>
+</head>
+<body>
+
+    <div class="content">
+        <h1>😊 ye li jiya miss 😊</h1>
+    </div>
+
+    <div class="player-container">
+        <div class="player">
+            <h2 id="song-title">Song for you miss 💖</h2>
+            <audio id="audio" controls>
+                <source id="source" src="music/Dagabaaz-Re.mp3" type="audio/mp3">
+                Your browser does not support the audio tag.
+            </audio>
+            <br>
+            
+           
+            
+        </div>
+    </div>
+
+    <script>
+        const songs =
+
+        function playSong(index) {
+            const audio = document.getElementById("audio");
+            const source = document.getElementById("source");
+            const title = document.getElementById("song-title");
+
+            source.src = songs[index].src;
+            audio.load();
+            audio.play();
+            title.innerText = songs[index].title;
+        }
+    </script>
+
+</body>
+</html>

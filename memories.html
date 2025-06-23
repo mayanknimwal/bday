@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memories 💖</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="memories-page">
+    <div class="memory-container">
+        <h1 class="memory-title">✨ Our Precious Moments ✨</h1>
+        <div class="memory-gallery">
+            <div class="memory-card"><img src="images/memory1.jpg" alt="Memory 1"></div>
+            <div class="memory-card"><img src="images/memory2.jpg" alt="Memory 2"></div>
+            <div class="memory-card"><img src="images/memory3.jpg" alt="Memory 3"></div>
+            <div class="memory-card"><img src="images/memory4.jpg" alt="Memory 4"></div>
+            <div class="memory-card"><img src="images/memory5.jpg" alt="Memory 5"></div>
+            <div class="memory-card"><img src="images/memory6.jpg" alt="Memory 6"></div>
+
+            <div class="memory-card"><img src="images/memory8.jpg" alt="Memory 8"></div>
+            <div class="memory-card"><img src="images/memory9.jpg" alt="Memory 9"></div>
+            <div class="memory-card"><img src="images/memory10.jpg" alt="Memory 10"></div>
+            <div class="memory-card"><img src="images/memory11.jpg" alt="Memory 11"></div>
+            <div class="memory-card"><img src="images/memory12.jpg" alt="Memory 12"></div>
+
+            <div class="memory-card"><img src="images/memory14.jpg" alt="Memory 14"></div>
+
+        </div>
+
+        <a href="lobby.html" class="memory-back">← Back to Lobby</a>
+    </div>
+
+</body><!-- Add this in your body (before the end tag) -->
+<script>
+    // Simple floating particles animation (stars effect)
+    document.addEventListener('DOMContentLoaded', () => {
+        let particleCount = 100;
+        let particles = [];
+        let canvas = document.createElement('canvas');
+        canvas.id = "particleCanvas";
+        canvas.style.position = 'absolute';
+        canvas.style.top = 0;
+        canvas.style.left = 0;
+        canvas.style.zIndex = -1;
+        document.body.appendChild(canvas);
+
+        let ctx = canvas.getContext('2d');
+        let width, height;
+
+        function resizeCanvas() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
+        }
+        window.onresize = resizeCanvas;
+        resizeCanvas();
+
+        function createParticle() {
+            return {
+                x: Math.random() * width,
+                y: Math.random() * height,
+                size: Math.random() * 2 + 1,
+                speedX: Math.random() * 0.5 - 0.25,
+                speedY: Math.random() * 0.5 - 0.25,
+                opacity: Math.random() * 0.5 + 0.5
+            };
+        }
+
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(createParticle());
+        }
+
+        function drawParticles() {
+            ctx.clearRect(0, 0, width, height);
+            particles.forEach(particle => {
+                ctx.beginPath();
+                ctx.arc(particle.x, particle.y, particle.size, 0, 2 * Math.PI);
+                ctx.fillStyle = `rgba(255, 255, 255, ${particle.opacity})`;
+                ctx.fill();
+                particle.x += particle.speedX;
+                particle.y += particle.speedY;
+                if (particle.x > width) particle.x = 0;
+                if (particle.x < 0) particle.x = width;
+                if (particle.y > height) particle.y = 0;
+                if (particle.y < 0) particle.y = height;
+            });
+            requestAnimationFrame(drawParticles);
+        }
+
+        drawParticles();
+    });
+</script>
+
+</html>
+<!-- Add this in your body (before the end tag) -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti"></script>
+<script>
+    // Confetti animation
+    document.addEventListener('DOMContentLoaded', function() {
+        var canvas = document.createElement('canvas');
+        document.body.appendChild(canvas);
+        var confetti = canvasConfetti.create(canvas, {
+            resize: true,
+            useWorker: true
+        });
+
+        confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { x: 0.5, y: 0.5 }
+        });
+    });
+</script>
+
+  

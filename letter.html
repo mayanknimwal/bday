@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>💌 Letters From Me to You</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Dancing Script', cursive;
+      background-image: ('assets/g.png') no-repeat center center/cover;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      color: #fffaf0;
+      background: rgba(243, 91, 117, 0.6);
+      padding: 10px 25px;
+      border-radius: 20px;
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .envelope {
+      position: relative;
+      width: 320px;
+      height: 220px;
+      background: rgba(255, 221, 225, 0.7);
+      border: 2px solid #ffc1cc;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.6s ease-in-out;
+      box-shadow: 0px 10px 20px rgba(0,0,0,0.2);
+      backdrop-filter: blur(6px);
+    }
+
+    .flap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      background: #ffc1cc;
+      border-bottom: 2px solid #ffb6c1;
+      border-radius: 10px 10px 0 0;
+      transform-origin: top;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .letter {
+      position: absolute;
+      top: 20%;
+      left: 10%;
+      width: 80%;
+      height: 60%;
+      background: #fffaf0;
+      padding: 15px;
+      border-radius: 8px;
+      color: #5a3e36;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+      transform: translateY(100%);
+      transition: transform 0.6s ease-in-out, opacity 0.6s;
+      opacity: 0;
+      font-size: 1.1rem;
+    }
+
+    .envelope.open .flap {
+      transform: rotateX(-180deg);
+    }
+
+    .envelope.open .letter {
+      transform: translateY(0%);
+      opacity: 1;
+    }
+
+    .back-to-lobby {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 12px 28px;
+      font-family: 'Dancing Script', cursive;
+      background-color: #ffe6ea;
+      color: #5a3e36;
+      border: 2px solid #ffc1cc;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 1.4rem;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+      transition: all 0.3s ease-in-out;
+      z-index: 1000;
+    }
+
+    .back-to-lobby:hover {
+      background-color: #fff0f5;
+      transform: translateX(-50%) scale(1.05);
+    }
+
+    @media (max-width: 500px) {
+      h1 {
+        font-size: 2rem;
+      }
+      .envelope {
+        width: 260px;
+        height: 180px;
+      }
+      .letter {
+        font-size: 1rem;
+      }
+      .back-to-lobby {
+        font-size: 1.2rem;
+        padding: 10px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>💌 Letters From Me to You</h1>
+
+  <div class="envelope" onclick="toggleEnvelope(this)">
+    <div class="flap"></div>
+    <div class="letter">
+      Dear Tanvi (my wifeyyy),<br><br>
+      You're the calm in my chaos, the smile in my sky 💖<br>
+      This letter is a little hug from me to you 💌<br><br>
+      Love, forever yours<br>Me 🌸
+    </div>
+  </div>
+
+  <a href="lobby.html" class="back-to-lobby">← Back to Lobby</a>
+
+  <script>
+    function toggleEnvelope(el) {
+      el.classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sakura + Ghibli</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: url('assets/ghivli6.png') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Dancing Script', cursive;
+      position: relative;
+    }
+
+    #petal-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 999;
+    }
+
+    .petal {
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      background-image: url('assets/mine.png');
+      background-size: cover;
+      opacity: 0.8;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="petal-container"></div>
+
+  <script>
+    function createPetal() {
+      const petal = document.createElement('div');
+      petal.classList.add('petal');
+      petal.style.left = Math.random() * 100 + 'vw';
+      petal.style.animationDuration = 2 + Math.random() * 3 + 's';
+      document.getElementById('petal-container').appendChild(petal);
+
+      setTimeout(() => {
+        petal.remove();
+      }, 5000);
+    }
+
+    setInterval(createPetal, 300);
+  </script>
+  <a href="secret.html" class="magic-btn">💫 Read My Secret Messages</a>
+  <style>
+    .magic-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 10px;
+  font-family: 'Dancing Script', cursive;
+  background-color: #e8dff5;
+  color: #4b2e83;
+  padding: 12px 20px;
+  border: 2px solid #c3b1e1;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 20px;
+  box-shadow: 0 0 15px #c3b1e1;
+  transition: all 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.magic-btn:hover {
+  background-color: #f2e9ff;
+  box-shadow: 0 0 25px #c3b1e1;
+  transform: scale(1.05);
+}
+
+  </style>
+  
+
+</body>
+</html>
+
+
